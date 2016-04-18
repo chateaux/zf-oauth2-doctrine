@@ -29,7 +29,7 @@ class DoctrineAdapterFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $services)
     {
-        $adapter = new DoctrineAdapter();
+        $adapter = $services->get('ZF\OAuth2\Doctrine\Adapter\DoctrineAdapter');
 
         $adapter->setConfig($this->config);
         $adapter->setObjectManager($this->loadObjectManager($services, $this->config->object_manager));
@@ -78,7 +78,6 @@ class DoctrineAdapterFactory implements FactoryInterface
         // @codeCoverageIgnoreEnd
 
         $mapperManager->setConfig($config->mapping);
-        $mapperManager->setObjectManager($this->loadObjectManager($services, $config->object_manager));
 
         return $mapperManager;
     }
