@@ -15,8 +15,6 @@ class AbstractMapperFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        //$realSL = $serviceLocator->getServiceLocator();
-
         return new AbstractMapper(
             $serviceLocator
         );
